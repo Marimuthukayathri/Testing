@@ -1,0 +1,284 @@
+{
+
+"Login": {
+             
+             "btn_Loginexisting":"//div[@id='login_pop_btn1']",
+             "btn_Signup":"//div[@id='signup_btn']",
+             "Get_Popup": "//p[@id='promo-popup']",
+             "btn_Email":"//a[text()='Email']",
+             "Get_Notify": "//button[text()='Later']",
+             "txt_Login":"//input[@name='username']",
+             "txt_Password":"//input[@name='password']",
+			 "btn_Newlogin":"//div[@id='login_check']",
+			 "btn_Loginverify": "//div[@class='welcome']",
+			 "btnjclk_Closecook":"//a[text()='Accept']",
+ 			 "btn_Hammenu": "//div[@class='top_nav']/span/i",
+			 "lnk_logout" :"//div[@id='logout']/a",
+			 "btn_Logoutconf": "(//button[@class='btn btn-danger'])[2]",
+			 "txt_logoutmsg": "//p[@class='form_error alert header_error_msg alert-success']",
+			 "txt_oldpwd" : "//input[@name='old_password']",
+			 "txt_newpwd" : "//input[@name='new_password']",
+			 "txt_confpwd" : "//input[@name='confirm_password']",
+			 "btn_Dephome": "(//div[@class='deposit-btn'])[1]",
+			 "btn_change": "//input[@id='submit_form']"
+			 
+			 },  
+
+"Wallet": { 
+			 "btn_Uservalue": "(//div[@class='username_sec'])[1]",
+             "btn_Wallet":"(//span[@class='bal_title1'])[1]",
+             "btn_wallref":"(//span[@class='bal_update'])[2]",
+             "getxt_Realbal":"(//span[@class='bal_val1 realBalance'])[1]",
+             "getxt_Wdbal":"(//span[@class='bal_val1 realWin'])[1]",
+             "getxt_Sportsbal":"(//span[@class='bal_val1 sportsbook'])[1]",
+             "getxt_Casbal":"(//span[@class='bal_val1 casino_slot_games'])[1]",
+             "getxt_Livbal":"(//span[@class='bal_val1 casino_live_dealers'])[1]",
+             "getxt_Exchbal":"(//span[@class='bal_val1 exchangeBalance'])[1]",
+             "getxt_Balance": "(//div[@class='balance-txt'])[1]",
+             "getxt_Bonusbal": "(//div[@class='balance-txt'])[2]",
+             "lnk_Freespinview":"//span[@class='spin-bal-popup']/a",
+             "btn_TotSpin": "//table[@class='table table-1 table-2']/thead/tr/th[5]",
+             "Get_TotSpin": "//div[@class='table-responsive text-nowrap']",
+             "btn_Close": "(//button[@class='close'])[5]",
+             "drpdn_Partnersrchby": "//select[@id='search_by']"
+             
+},
+
+
+
+"Menu": { 
+			 
+             "btn_Hammenu": "//div[@class='top_nav']/span/i",
+			 "mhov_Myacc":"(//li[@class='nav-item dropdown'])[1]",
+             "btn_Sett":"(//div[@class='dropdown-menu'])[1]/a[2]",
+             "lnk_Changepwd": "//div[@id='nav-tab']/a[5]",
+             "drpdn_Partnersrchby": "//select[@id='search_by']"
+      
+},
+
+"Register": { 
+			 
+             "btn_Notify":"//button[@id='onesignal-slidedown-cancel-button']",
+ 			 "btnjclk_Closecook":"//a[text()='Accept']",
+             "btn_Signup":"//div[@id='signup_btn']",
+             "btn_Reg":"//div[@id='signup_btn']",
+			 "btn_Email":"//a[text()='Email']",
+             "txt_Username":"(//input[@id='user_name'])[2]",
+			 "txt_email":"//input[@id='user_email']",
+			 "btn_Closemsg":"//span[@class='icon-ic_close']",
+			 "txt_pwd":"//input[@id='userpassword']",
+			 "chk_Age":"(//input[@id='age_cnfrm'])[2]",
+			 "btn_Recaptcha":"//span[@id='recaptcha-anchor']/div[1]",
+			 "txt_conpwd":"//input[@id='user_confirm_password']",
+			 "drpdn_Countrycode":"//select[@id='country_code']",
+			 "txt_Mobile":"//input[@id='user_mobile_no']",
+			 "chk_All":"(//label[@class='containercomms'])[1]",
+			 "txt_Mobuname":"(//input[@id='user_name'])[1]",
+             "txt_Mobnum":"(//input[@id='user_mobile_no'])",
+             "txt_Mobpwd":"//input[@id='user_password']",
+             "chk_Mobage":"(//input[@id='age_cnfrm'])[1]",
+             "btn_Mobsubmit":"//input[@id='phone_submit_register']",
+             "btn_Regsub":"//input[@id='email_submit_register']"
+			 
+},
+
+"Changepwd": { 
+			 
+             "btn_Hammenu": "//div[@class='top_nav']/span/i",
+			 "mhov_Myacc":"(//li[@class='nav-item dropdown'])[1]",
+             "btn_Sett":"//a[text()='Account settings']",
+             "lnk_Changepwd": "//div[@id='nav-tab']/a[4]",
+             "txt_Pwd":"//input[@id='current_password']",
+             "txt_Newpwd":"//input[@id='new_password']",
+             "txt_Confpwd":"//input[@id='confirm_password']",
+             "btn_Submit": "(//button[@class=' buttton reg_plr_btn3'])[5]",
+             "txt_Verify":"//p[@class='form_error alert setting-msg alert-success']",
+             "drpdn_Partnersrchby": "//select[@id='search_by']"
+      
+},
+
+
+"Forgotpasswd": { 
+			 
+             "btnact_Forgotpwd":  "//div[@class='forget_login']",
+             "txt_Forgotmail": "//input[@id='user_email_mobile']",
+             "btn_Submit" : "//input[@id='submit_forgotpassword']",
+             "txt_Resetlink": "//label[@id='error_result']",
+             "btn_Close": "(//button[@class='close'])[2]",
+             "lnk_Signin" : "//a[text()='Sign in']",
+             "txt_Email": "//input[@id='identifierId']",
+             "txt_Mailinator":"//input[@id='addOverlay']",
+             "btn_Go":"//button[@id='go-to-public']",
+             "btn_Clkfgotmail":"(//td[@class='ng-binding'])[2]",
+             "btn_Chgpwd":"//a[text()='Change Password']",
+             "Get_staleissue":"//*[@id='bodyCell']/table/tbody/tr[1]/td/p[4]/a",
+             "btn_Emailnext": "//div[@class='VfPpkd-RLmnJb']",
+             "txt_Pwd": "//input[@name='password']",
+             "btn_Pwdnext": "(//div[@class='VfPpkd-RLmnJb'])[1]",
+             "lnk_Gmail": "(//a[@class='gb_g'])[1]",
+             "txt_Searchmail": "//input[@name='q']",
+             "btn_Clkmail": "(//span[@class='bqe'])[36]",
+          	 "btn_Clickmail": "(//span[@class='bqe'][text()='Forgot password'])[4]",
+             "lnk_Pwdlink": "//a[text()='Change Password']",
+             "txt_Newpwd": "//input[@id='newpassword']",
+             "txt_Conpwd": "//input[@id='confirmpassword']",
+             "btn_ForgotSub":"//input[@id='submit_forgotpassword']",
+             "Get_assert": "//label[@id='error_result']",
+             "assert_link": "//div[@class='alert-msg forgotpassword-error success-msg']",
+             "txt_pwdverify": "//p[text()='Password updated successfully.']",
+             "btn_Submitnewpwd" : "//input[@id='submit_forgotpassword']"
+             
+},
+
+"Profile":   {
+		
+		"lnk_Prof":"//div[@class='myacc_list game-type scroll_center']/li[4]/a",
+		"btnjclk_Closecook": "//a[text()='Accept']",
+        "drpdn_Gender": "//select[@id='gender']",
+		"drpdn_Country":"//select[@id='countryId']",
+		"drpdn_State":"//select[@id='stateId']",
+		"drpdn_City":"//select[@id='cityId']",
+		"btn_submit":"//button[@class='reg_plr_btn3']",
+		"btn_Dob":"//input[@id='date_of_birth']",
+		"txt_Dob":"//input[@id='date_of_birth']",
+		"txt_Address":"//input[@id='address']",
+		"txt_Firstnm":"//input[@id='first_name']",
+		"txt_Lastnm":"//input[@id='last_name']",
+		"txt_Pincode":"//input[@id='zipcode']",
+		"txt_Usernm":"//input[@id='user_name']",
+		"txt_Email":"//input[@id='email_id']",
+		"txt_Contact":"//input[@id='contact']",
+		"btn_MobVerify":"(//div[text()='VERIFY'])[3]",
+		"txt_Verify":"//p[@id='profile_error_msg']",
+		"lnk_Proerf":"//div[@class='myacc_list game-type scroll_center']/li[4]/a"
+		
+		
+},
+
+
+"KYC": { 
+			 
+			 "Get_Nextdt": "(//th[@class='next'])[1]",
+			 "lnk_Kyc":"//div[@class='myacc_list game-type scroll_center']/li[5]/a",
+             "drpdn_Idproof": "//select[@id='proof']",
+             "txt_Docno":"//input[@id='document_number']",
+             "btn_Expdt":"//input[@id='expiry_date']",
+             "btn_Predt":"(//th[@class='prev'])[1]",
+             "btn_nxtdt":"(//th[@class='next'])[1]",
+             "btn_Moyr":"(//th[@class='datepicker-switch'])[1]",
+             "btn_Yr":"(//th[@class='datepicker-switch'])[2]",
+             "btnjclk_IDproofFront": "//input[@id='userfile']",
+             "btnact_IDproofBack": "//input[@id='userfile1']",
+             "drpdn_BankProof": "//select[@id='bank_documentation']",
+             "btnact_Bankproof": "//input[@id='bank_doc']",
+             "btn_Feedbk":"//button[@class='_hj-OO1S1__styles__openStateToggle']",
+             "txt_Kycupdate":"//p[@id='profile_error_msg']",
+             "btnjclk_Closecook":"//a[text()='Accept']",
+             "btn_Kycsubmit": "//button[@class='reg_plr_btn3']"
+             
+             
+},
+
+
+"Gamehistory": {
+ 
+			 "btn_Uservalue": "(//div[@class='username_sec'])[1]",
+             "mhov_Transact":"//a[@id='navbarDropdown']",
+             "btnjclk_Gamehis":"(//a[text()='Game History'])[2]",
+             "btn_Today":"//div[@class='acc_details date_filter']/div[1]",
+             "btn_Yesday": "//div[@class='acc_details date_filter']/div[2]",
+             "btn_Thisweek": "//div[@class='acc_details date_filter']/div[3]",
+             "btn_Thismon": "//div[@class='acc_details date_filter']/div[4]",
+             "drpdn_Gamecat":"//select[@id='categoryId']",
+             "btn_Search": "//button[@id='history_search']",
+             "txt_Startdate": "//input[@id='start_date']",
+             "txt_Enddate": "//input[@id='end_date']",
+             "btn_PlayHis":"(//td[@class='sorting_1'])[1]",
+             "btnjclk_Closecook": "//a[text()='Accept']",
+             "drpdn_Partnersrchby": "//select[@id='search_by']"
+             
+},
+
+"MailLogin": { 
+			 
+             "lnk_Signin" : "//a[text()='Sign in']",
+             "txt_Email": "//input[@id='identifierId']",
+             "btn_Emailnext": "//div[@class='VfPpkd-RLmnJb']",
+             "txt_Pwd": "//input[@name='password']",
+             "btn_Pwdnext": "(//div[@class='VfPpkd-RLmnJb'])[1]",
+             "lnk_Gmail": "//a[text()='Gmail']",
+             "txt_Searchmail": "//input[@name='q']",
+             "btn_Recovery": "(//span[text()='Recovery password'])[4]",
+             "drpdn_Partnersrchby": "//select[@id='search_by']"
+             
+},
+
+
+"Footer":  {
+
+             "btnjclk_Closecook":"//a[text()='Accept']",
+             "lnk_About":"(//div[@class='divide_block']/ul/li[1]/a)[1]",
+             "txt_About":"//h1",
+             "lnk_Exch":"(//div[@class='divide_block']/ul/li[1]/a)[2]",
+             "txt_Exch":"//h1",
+             "lnk_Faq":"(//div[@class='divide_block']/ul/li[2]/a)[1]",
+			 "txt_Faq":"//h1",
+             "lnk_Terms":"(//div[@class='divide_block']/ul/li[2]/a)[4]",
+			 "txt_Terms":"//h1",
+             "lnk_Sports":"(//div[@class='divide_block']/ul/li[2]/a)[2]",
+			 "txt_Sports":"//h1",
+             "lnk_Privacy":"(//div[@class='divide_block']/ul/li[2]/a)[3]",
+			 "txt_Privacy":"//h1",
+             "lnk_Response":"(//div[@class='divide_block']/ul/li[3]/a)[3]",
+			 "txt_Response":"//h1",
+             "lnk_Affil":"(//div[@class='divide_block']/ul/li[1]/a)[3]",
+			 "txt_Affil":"(//div[@id='primary-menu']/ul/li/a)[1]",
+             "lnk_Payment":"(//div[@class='divide_block']/ul/li[3]/a)[2]",
+			 "txt_Payment":"(//h2)[1]",
+			 "lnk_Tut":"(//div[@class='divide_block']/ul/li[3]/a)[1]",
+			 "txt_Tut":"//h1",
+			 "lnk_Sitemap":"(//div[@class='divide_block']/ul/li[3]/a)[4]",
+			 "txt_Sitemap":"(//h2)[1]",
+			 "btnjclk_GCertif":"//html/body/a/img[1]",
+			 "txt_GCertif":"//*[@id='blog-title']/a",
+             "lnk_Whatsapp":"//div[@class='social_media']/a[1]",
+			 "txt_Whatsapp":"//html/body",
+             "lnk_Telegram":"//div[@class='social_media']/a[2]",
+			 "txt_Telegram":"//html/body",
+             "lnk_Facebook":"//div[@class='social_media']/a[3]",
+			 "txt_Facebook":"//html/body",
+             "lnk_Youtube":"//div[@class='social_media']/a[4]",
+			 "txt_Youtube":"//html/body",
+             "lnk_Instagm":"//div[@class='social_media']/a[5]",
+			 "txt_Instagm":"//html/body",
+             "lnk_Twitt":"//div[@class='social_media']/a[6]",
+			 "txt_Twitt":"//html/body",
+             "btn_Offpart":"(//div[@class='provider-logo '])[1]",
+			 "btn_Casinoprov":"(//div[@class='provider-logo '])[2]",
+			 "btn_Msg":"//div[@id='fc_frame']",
+			 "txt_Msg":"(//div[@class='h-message-text '])[1]",
+			 "btnact_Closemsg":"//div[@class='d_hotline minimize ']",
+			 "btn_Footmenu":"//div[@class='footer-menu']",
+			 "txt_Contno":"//div[@class='footer-support text-center text-white']/div[1]",
+			 "txt_Mail":"//div[@class='footer_cont_no']"
+
+
+},
+
+
+"Reports": { 
+			 
+			 "btn_Prev": "//span[text()='Prev']",
+             "txt_Totbets": "//table[@class='ui-jqgrid-ftable']/tbody/tr/td[2]",
+             "drpdn_Mainagt": "//select[@name='AGENT_LIST']",
+             "gtxt_Mainagtname": "//*[@id='16532']/td[2]/a",
+             "lnk_TOagt":"//a[text()='maridemoagt']"
+
+                          
+}
+
+
+
+}
+
+

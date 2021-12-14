@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="348472" started-at="2021-03-06T13:02:19Z" finished-at="2021-03-06T13:08:08Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="348472" started-at="2021-03-06T13:02:19Z" finished-at="2021-03-06T13:08:08Z">
+      <class name="Framework.fetching_exceldata">
+        <test-method status="PASS" signature="exceldata()[pri:0, instance:Framework.fetching_exceldata@2049a9c1]" name="exceldata" duration-ms="348429" started-at="2021-03-06T13:02:19Z" finished-at="2021-03-06T13:08:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exceldata -->
+      </class> <!-- Framework.fetching_exceldata -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
