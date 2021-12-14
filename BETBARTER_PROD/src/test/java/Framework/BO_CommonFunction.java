@@ -218,6 +218,7 @@ public class BO_CommonFunction {
 	public static void actiononwindback(RemoteWebDriver driver)
 
 	{
+		System.out.println("window back");
 		driver.navigate().back();
 	}
 
