@@ -1,0 +1,158 @@
+pipeline {
+    //Select QCoE_Agent1-6v/2-2v/3-3v QCoE_Automation
+    agent { label 'QCoE_Automation' }
+    
+    //CRON tab setup for scheduled execution
+    // Staged as {Minute} {Hour} {DayOfMonth} {Month} {DayofWeek}
+    // triggers {
+    //     cron('H 12 * * 3')
+    // }
+    
+    //Quiet Period is the number of seconds that this Jenkins instance should wait before triggering a Job.
+    //buildDiscarder to purge previously archived builds
+    options {
+        quietPeriod(0)
+        buildDiscarder logRotator(artifactNumToKeepStr: '5', numToKeepStr: '5')
+    }
+    
+    //As per requirement make changes to below environment variables
+    environment {
+        //Path to System32, GIT and Maven on slave machine
+        PATH="C:\\Windows\\System32;C:\\Program Files\\Git\\cmd;C:\\apache-maven-3.8.4\\bin;C:\\Program Files\\Java\\jdk-11\\bin;"
+        //path to java home on slave machine
+        // JAVA_HOME="C:\\Program Files\\Java\\jdk1.8.0_301"
+        JAVA_HOME="C:\\Program Files\\Java\\jdk-11"
+        //BRANCH_NAME
+        BRANCH_NAME="master"
+        //Mail distribution flag- Set value to true if needed else false to skip the stage
+        MAIL_DISTRIBUTION_TO_FLAG='true'
+        //Enable below to restrict internal distribution
+        MAIL_DISTRIBUTION_TO="ChelliahM.c@alrajhibank.com.sa,GovindarajiG.c@alrajhibank.com.sa,ggovindaraji-v@ejada.com"
+        // MAIL_DISTRIBUTION_TO="sivakumar-v@ejada.com,spujari-v@ejada.com,VeeraragavanS.c@alrajhibank.com.sa"
+        //Enable below to restrict internal distribution
+        //MAIL_DISTRIBUTION_CC="cc:spujari-v@ejada.com"
+         MAIL_DISTRIBUTION_CC="marimuthu-v@ejada.com"
+        //Mail Subject  ,MohideenM@alrajhiservices.com.sa,RupasS.c@alrajhibank.com.sa,
+        MAIL_SUBJECT="API JENKINS REPORT"
+        //Repository Name
+        REPO_NAME="ARB_QCoE_APIAUTOMATION"
+        //BitBucket path to project after SCM
+        SCM_REPO_NAME="aaa/arb_qcoe_apiautomation.git"
+        
+        // def reportFile = bat(script: 'dir /b E:\\jenkins_slave\\workspace\\QCoE Automation\\Scheduled Executions\\Weekly Regressions\\PSH-Regression\\psh-automation\\src\\test\\resources\\Reports\\index2.html').trim().replaceAll('.html', '').tokenize()
+        // def reportFile = 'E:\\jenkins_slave\\workspace\\QCoE Automation\\Scheduled Executions\\Weekly Regressions\\PSH-Regression\\psh-automation\\src\\test\\resources\\Reports\\index2.html'.replaceAll('.html', '').trim()
+
+    }
+    
+     //Initialization of workspace involving cleanup of project files and folders 
+    stages {
+        stage('Initialize') {
+            steps {
+                //Delete remnant files from last execution
+                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
+	                bat 'del /f /s /q %REPO_NAME% 1'
+	            }
+	            //Cleanup remnant folders from last execution
+	            catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
+	                bat 'rd /S /Q %REPO_NAME%'
+	            }
+            }
+        }
+        
+        //Cloning project to workspace 
+        stage('Workspace Setup') {
+            steps {
+                echo '*********Workspace Setup Start*********'
+    		    echo 'Cloning repository'
+    		     bat 'git config --global http.sslVerify false'
+    		    withCredentials([usernamePassword(credentialsId: 'QCoE-bitbucket-connector', passwordVariable: 'QCoEpassword', usernameVariable: 'QCoEusername')]) {
+                 bat 'git clone -b %BRANCH_NAME% https://%QCoEusername%:%QCoEpassword%@arb-bitbucket.devops.alrajhi.bank/scm/%SCM_REPO_NAME%'
+                 echo 'Cleaning up Reports Files'
+                //  bat 'del /s /q ./psh_testing/src/test/resources/Test_Reports/'
+                }
+    		    echo '*********Workspace Setup End***********'
+            }
+        }
+        
+         
+        
+        //Run Maven test goal for profiles smokeTests/healthCheck/regressionTests.
+        stage('Test') {
+            steps {
+                echo '*********Test Start*********'
+    		    echo 'Starting tests'
+    		    echo "${REPO_NAME}"
+    		    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+    		        dir("${REPO_NAME}"){
+    		      //  bat 'CD PSH_Automation/src/test/java/com/psh/testcases/'
+    		      //   bat 'mvn -U --batch-mode -s E:\\jenkins_slave\\workspace\\QCoE'+' Automation\\Scheduled'+' Executions\\Weekly'+' Regressions\\PSH-Regression\\psh-automation\\settings.xml clean test'
+    		      //bat 'mvn -U --batch-mode -s settings.xml clean test -P onRemote -Dgroups="ICTINBOUND_MT"'
+    		      bat 'mvn -U --batch-mode -s settings.xml clean test -P onRemote'
+    		      //  bat 'CD PSH_Automation'
+    		      //  -Dgroups="ICTINBOUND_MT"'
+    		      //  bat 'DIR'
+    		      //  bat 'javac \\src\\test\\java\\com\\psh\\testcases\\Test_Execution.java'
+    		      //  bat 'dir /PSH-Regression/psh-automation/PSH_Automation/src/test/java/com/psh/testcases'
+    		      //  bat '''
+    		        
+    		      //   cd('/PSH_Automation/src/test/java/com/psh/testcases')
+    		      //  '''
+    		          //  CD PSH_Automation/src/test/java/com/psh/testcases
+    		        
+    		      //  bat 'DIR'
+    		      //  bat 'java -version'
+    		      //  bat 'javac Test_Execution.java'
+    		      //  bat 'java Test_Execution'
+    		      //   bat 'mvn -U --batch-mode -s settings.xml clean test -P onRemote -Dtest-type="smokeTests"'
+    		        }
+    		    }
+    		    echo '*********Test End************'
+            }
+        }
+        
+        //Archival of downloadable execution report
+        //  stage('Archival') {
+        //     steps {
+        //         echo '*********Archival Start*********'
+        //         archiveArtifacts artifacts: "${REPO_NAME}/test-output/*.html,${REPO_NAME}/test-output/*.log", onlyIfSuccessful: false
+        //         echo '*********Archival End************'
+        //     }
+        // }
+        
+        //Mail distribution to Stakeholders based on the flag true/false in environment variables.
+        stage('Report Distribution') {
+            when { environment(name: "MAIL_DISTRIBUTION_TO_FLAG", value: "true")}
+            steps {
+                echo '*********Report Distribution Start*********'
+                // emailext    body: "Please find attached Execution Result report : ",
+                emailext    body:
+                """ Dear all, Please find Attached Execution Results Summary : """,
+                            
+                            subject: "${MAIL_SUBJECT}Build#${BUILD_NUMBER}",
+                             //subject: "${MAIL_SUBJECT}Build#${BUILD_NUMBER}${reportFile}",
+                            to: "${MAIL_DISTRIBUTION_TO},${MAIL_DISTRIBUTION_CC}",
+                            mimeType: 'text/html',
+                            attachmentsPattern: 'arb_qcoe_apiautomation/recent_execution_Reports/*.html'
+                            //attachmentsPattern: 'psh_testing/src/test/resources/Test_Reports/ICT_Inbound_TestResult26070818.html'
+                echo '*********Report Distribution End************'
+            }
+        }
+        
+        // Project Cleanup from workspace 
+        stage('Cleanup') {
+            steps {
+                echo '*********Cleanup Start*********'
+                echo 'Closing browser instances'
+                // catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
+                //     bat 'taskkill /F /IM "chrome.exe" /T'
+                //     bat 'taskkill /F /IM "msedge.exe" /T'
+                //     bat 'taskkill /F /IM "iexplorer.exe" /T'
+                // }
+                echo '* Cleaning workspace'
+                // bat 'del /f /s /q %REPO_NAME% 1>nul'
+                // bat 'rd /S /Q %REPO_NAME%'
+                echo '*********Cleanup End*********'
+            }
+        }
+    }
+}
